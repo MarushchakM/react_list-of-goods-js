@@ -21,12 +21,12 @@ export const goodsFromServer = [
   'Garlic',
 ];
 
-function getPreparedGoods(goods, { sortFiled, reverse }) {
+function getPreparedGoods(goods, { sortField, reverse }) {
   const prepareGoods = [...goods];
 
-  if (sortFiled) {
+  if (sortField) {
     prepareGoods.sort((good1, good2) => {
-      switch (sortFiled) {
+      switch (sortField) {
         case SORT_FIELD_LENGTH:
           return good1.length - good2.length;
         case SORT_FIELD_ALPHABETICALLY:
