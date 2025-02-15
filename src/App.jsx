@@ -45,28 +45,28 @@ function getPreparedGoods(goods, { sortFiled, reverse }) {
 }
 
 export const App = () => {
-  const [sortFiled, setSortFiled] = useState('');
+  const [sortField, setSortField] = useState('');
   const [reverse, setReverse] = useState('');
-  const visibleGood = getPreparedGoods(goodsFromServer, { sortFiled, reverse });
+  const visibleGood = getPreparedGoods(goodsFromServer, { sortField, reverse });
 
   return (
     <div className="section content">
       <div className="buttons">
         <button
-          onClick={() => setSortFiled(SORT_FIELD_ALPHABETICALLY)}
+          onClick={() => setSortField(SORT_FIELD_ALPHABETICALLY)}
           type="button"
           className={cn('button', 'is-info', {
-            'is-light': sortFiled !== SORT_FIELD_ALPHABETICALLY,
+            'is-light': sortField !== SORT_FIELD_ALPHABETICALLY,
           })}
         >
           Sort alphabetically
         </button>
 
         <button
-          onClick={() => setSortFiled(SORT_FIELD_LENGTH)}
+          onClick={() => setSortField(SORT_FIELD_LENGTH)}
           type="button"
           className={cn('button', 'is-info', {
-            'is-light': sortFiled !== SORT_FIELD_LENGTH,
+            'is-light': sortField !== SORT_FIELD_LENGTH,
           })}
         >
           Sort by length
@@ -84,10 +84,10 @@ export const App = () => {
           Reverse
         </button>
 
-        {(sortFiled || reverse) && (
+        {(sortField || reverse) && (
           <button
             onClick={() => {
-              setSortFiled('');
+              setSortField('');
               setReverse('');
             }}
             type="button"
